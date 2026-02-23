@@ -11,3 +11,7 @@ grumphp:
             config: .php-cs-fixer.dist.php
         phpunit:
             config_file: phpunit.xml.dist
+        shell:
+            scripts:
+                - ['-c', 'make infection']
+            triggered_by: [php]

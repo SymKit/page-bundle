@@ -203,10 +203,10 @@ You can customize the templates by overriding them in `templates/bundles/SymkitP
 
 ## Development
 
--   **Tests**: `vendor/bin/phpunit` (Unit tests by default; integration tests are in the `integration` group).
+-   **Tests**: `make test` runs unit tests by default. Run `vendor/bin/phpunit` (without group exclude) for the full suite including integration tests.
 -   **Code style**: `make cs-fix` (requires `friendsofphp/php-cs-fixer` in require-dev).
 -   **Static analysis**: `make phpstan` (requires `phpstan/phpstan` in require-dev).
--   **Full pipeline**: `make quality` runs cs-check, phpstan, lint and test.
+-   **Full pipeline**: `make quality` runs cs-check, phpstan, deptrac, lint, test and infection.
 
 ## License
 

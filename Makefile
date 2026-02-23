@@ -24,6 +24,6 @@ test:
 security-check:
 	composer audit --abandoned=report
 
-quality: cs-check phpstan deptrac lint test
+quality: cs-check phpstan deptrac lint test infection
 
 ci: security-check quality
