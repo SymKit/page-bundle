@@ -1,0 +1,46 @@
+{% extends base_layout %}
+
+{% block page_header '' %}
+
+{% block main_container %}
+<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="lg:flex lg:gap-x-12">
+        {# Main content #}
+        <div class="flex-auto min-w-0" data-table-of-contents-target="content">
+            <header class="mb-16">
+                <div class="space-y-4">
+                    {% if page.category %}
+                    <div class="text-sm font-semibold text-sky-600 dark:text-sky-400 uppercase tracking-wider">
+                        {% block content_label %}{{ page.category.name }}{% endblock %}
+                    </div>
+                    {% endif %}
+                    <h1
+                        class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl font-display">
+                        {% block content_title %}{{ page.title }}{% endblock %}
+                    </h1>
+
+                    <p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+                        {% block content_lead %}{{ page.excerpt }}{% endblock %}
+                    </p>
+                </div>
+            </header>
+
+            <div class="prose prose-lg prose-indigo dark:prose-invert max-w-none prose-pre:my-0 prose-table:my-0">
+                {% block content_body '' %}
+            </div>
+        </div>
+
+        {# TOC Sidebar #}
+        <aside class="hidden xl:block xl:w-64 xl:flex-none" data-table-of-contents-target="container">
+            <div class="sticky top-28 space-y-8">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    Table des matières
+                </h2>
+                <nav class="space-y-1">
+                    {% block sidebar_right '' %}
+                </nav>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}

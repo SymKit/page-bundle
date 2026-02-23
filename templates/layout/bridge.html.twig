@@ -1,0 +1,40 @@
+{% extends layout %}
+
+{% block main_container %}
+<div data-controller="table-of-contents" class="flex-1 flex flex-col">
+    {{ parent() }}
+</div>
+{% endblock %}
+
+{# Standard Sidebar Left: Use page's menu or category's default menu #}
+{% block sidebar_left %}
+{% set effectiveMenu = page.effectiveSidebarMenu %}
+{% if effectiveMenu %}
+<ul role="list" class="space-y-1.5">
+    {% for item in get_menu(effectiveMenu.code) %}
+    <li>
+        <a href="{{ item.url }}" class="block rounded-md py-2 pl-3 pr-2 text-sm font-semibold transition-colors
+                                    {{ item.isActive 
+                                        ? 'bg-slate-100 text-sky-600 dark:bg-slate-800 dark:text-sky-400' 
+                                        : 'text-slate-700 hover:bg-slate-50 hover:text-sky-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-sky-400' 
+                                    }}">
+            {{ item.label }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
+
+{% block content_body %}
+{% if page.content[:1] == '[' or page.content[:1] == '{' %}
+{{ render_content_blocks(page.content) }}
+{% else %}
+{{ page.content|raw }}
+{% endif %}
+
+{# FAQ Section #}
+{% if page.faq %}
+{{ include('@SymkitFaq/faq/components/_faq.html.twig', { faq: page.faq }) }}
+{% endif %}
+{% endblock %}

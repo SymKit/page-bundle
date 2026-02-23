@@ -1,0 +1,52 @@
+# Page Bundle routes — import in the host app with:
+#   symkit_page:
+#     resource: '@SymkitPageBundle/config/routes.yaml'
+#     prefix: /
+
+_symkit_page_front:
+    path: /{slug}
+    controller: Symkit\PageBundle\Controller\PageController
+    name: page_show
+    priority: -100
+
+_symkit_page_admin_pages:
+    path: /admin/pages
+    controller: Symkit\PageBundle\Controller\Admin\PageController::list
+    name: admin_page_list
+
+_symkit_page_admin_pages_create:
+    path: /admin/pages/create
+    controller: Symkit\PageBundle\Controller\Admin\PageController::create
+    name: admin_page_create
+
+_symkit_page_admin_pages_edit:
+    path: /admin/pages/{id}/edit
+    controller: Symkit\PageBundle\Controller\Admin\PageController::edit
+    name: admin_page_edit
+
+_symkit_page_admin_pages_delete:
+    path: /admin/pages/{id}/delete
+    controller: Symkit\PageBundle\Controller\Admin\PageController::delete
+    name: admin_page_delete
+    methods: [POST]
+
+_symkit_page_admin_categories:
+    path: /admin/categories
+    controller: Symkit\PageBundle\Controller\Admin\CategoryController::list
+    name: admin_category_list
+
+_symkit_page_admin_categories_create:
+    path: /admin/categories/create
+    controller: Symkit\PageBundle\Controller\Admin\CategoryController::create
+    name: admin_category_create
+
+_symkit_page_admin_categories_edit:
+    path: /admin/categories/{id}/edit
+    controller: Symkit\PageBundle\Controller\Admin\CategoryController::edit
+    name: admin_category_edit
+
+_symkit_page_admin_categories_delete:
+    path: /admin/categories/{id}/delete
+    controller: Symkit\PageBundle\Controller\Admin\CategoryController::delete
+    name: admin_category_delete
+    methods: [POST]

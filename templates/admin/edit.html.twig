@@ -1,0 +1,24 @@
+{% extends 'admin/layout/base.html.twig' %}
+{% trans_default_domain 'SymkitPageBundle' %}
+{% form_theme form '@SymkitForm/form/tailwind_layout.html.twig' %}
+
+{% block page_title %}{{ page.title }}{% endblock %}
+{% block page_description %}{{ 'admin.page.edit_description'|trans }}{% endblock %}
+
+{% block header_actions %}
+<div class="flex items-center gap-x-4">
+    <twig:BackLink route="admin_page_list" />
+    <button type="submit" form="page-form"
+        class="cursor-pointer rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        {{ 'admin.page.update_button'|trans }}
+    </button>
+</div>
+{% endblock %}
+
+{% block body %}
+{% include '@SymkitPage/admin/_form.html.twig' %}
+
+{# Hidden Delete Forms #}
+<twig:DeleteForm route="admin_page_delete" :routeParams="{id: page.id}" :entityId="page.id" formId="delete-page-form"
+    :confirmMessage="'admin.page.delete_confirm'|trans" />
+{% endblock %}

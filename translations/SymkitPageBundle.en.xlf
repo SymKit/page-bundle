@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="SymkitPageBundle" date="2025-01-01T00:00:00Z">
+        <header/>
+        <body>
+            <!-- Admin page -->
+            <trans-unit id="admin.page.create_title" resname="admin.page.create_title">
+                <source>Create New Page</source>
+                <target>Create New Page</target>
+            </trans-unit>
+            <trans-unit id="admin.page.create_description" resname="admin.page.create_description">
+                <source>Add a new page to your website.</source>
+                <target>Add a new page to your website.</target>
+            </trans-unit>
+            <trans-unit id="admin.page.edit_description" resname="admin.page.edit_description">
+                <source>Manage page content, settings, and FAQs.</source>
+                <target>Manage page content, settings, and FAQs.</target>
+            </trans-unit>
+            <trans-unit id="admin.page.create_button" resname="admin.page.create_button">
+                <source>Create Page</source>
+                <target>Create Page</target>
+            </trans-unit>
+            <trans-unit id="admin.page.update_button" resname="admin.page.update_button">
+                <source>Update Page</source>
+                <target>Update Page</target>
+            </trans-unit>
+            <trans-unit id="admin.page.delete_confirm" resname="admin.page.delete_confirm">
+                <source>Are you sure you want to delete this page?</source>
+                <target>Are you sure you want to delete this page?</target>
+            </trans-unit>
+            <trans-unit id="admin.page.delete_button" resname="admin.page.delete_button">
+                <source>Delete Page</source>
+                <target>Delete Page</target>
+            </trans-unit>
+            <trans-unit id="admin.page.permalink" resname="admin.page.permalink">
+                <source>Permalink:</source>
+                <target>Permalink:</target>
+            </trans-unit>
+            <trans-unit id="admin.page.open" resname="admin.page.open">
+                <source>Open</source>
+                <target>Open</target>
+            </trans-unit>
+            <trans-unit id="admin.page.general_info" resname="admin.page.general_info">
+                <source>General Information</source>
+                <target>General Information</target>
+            </trans-unit>
+            <trans-unit id="admin.page.add_title" resname="admin.page.add_title">
+                <source>Add title</source>
+                <target>Add title</target>
+            </trans-unit>
+            <trans-unit id="admin.page.content" resname="admin.page.content">
+                <source>Content</source>
+                <target>Content</target>
+            </trans-unit>
+            <trans-unit id="admin.page.visual_editor" resname="admin.page.visual_editor">
+                <source>Visual Block Editor</source>
+                <target>Visual Block Editor</target>
+            </trans-unit>
+            <trans-unit id="admin.page.status_visibility" resname="admin.page.status_visibility">
+                <source>Status &amp; Visibility</source>
+                <target>Status &amp; Visibility</target>
+            </trans-unit>
+            <trans-unit id="admin.page.seo_metadata" resname="admin.page.seo_metadata">
+                <source>SEO &amp; Metadata</source>
+                <target>SEO &amp; Metadata</target>
+            </trans-unit>
+            <trans-unit id="admin.page.layout_navigation" resname="admin.page.layout_navigation">
+                <source>Layout &amp; Navigation</source>
+                <target>Layout &amp; Navigation</target>
+            </trans-unit>
+            <!-- Form labels/help (page) -->
+            <trans-unit id="form.page.sec_general" resname="form.page.sec_general">
+                <source>General</source>
+                <target>General</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_general_desc" resname="form.page.sec_general_desc">
+                <source>Title, slug and category.</source>
+                <target>Title, slug and category.</target>
+            </trans-unit>
+            <trans-unit id="form.page.title" resname="form.page.title">
+                <source>Title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="form.page.title_placeholder" resname="form.page.title_placeholder">
+                <source>e.g., Getting Started</source>
+                <target>e.g., Getting Started</target>
+            </trans-unit>
+            <trans-unit id="form.page.slug" resname="form.page.slug">
+                <source>Slug</source>
+                <target>Slug</target>
+            </trans-unit>
+            <trans-unit id="form.page.slug_placeholder" resname="form.page.slug_placeholder">
+                <source>e.g., getting-started</source>
+                <target>e.g., getting-started</target>
+            </trans-unit>
+            <trans-unit id="form.page.slug_help" resname="form.page.slug_help">
+                <source>URL-friendly identifier (lowercase, hyphens only)</source>
+                <target>URL-friendly identifier (lowercase, hyphens only)</target>
+            </trans-unit>
+            <trans-unit id="form.page.category" resname="form.page.category">
+                <source>Category</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="form.page.category_placeholder" resname="form.page.category_placeholder">
+                <source>-- Select a category --</source>
+                <target>-- Select a category --</target>
+            </trans-unit>
+            <trans-unit id="form.page.category_help" resname="form.page.category_help">
+                <source>Required: categorize this page</source>
+                <target>Required: categorize this page</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_content" resname="form.page.sec_content">
+                <source>Content</source>
+                <target>Content</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_content_desc" resname="form.page.sec_content_desc">
+                <source>Excerpt, body and status.</source>
+                <target>Excerpt, body and status.</target>
+            </trans-unit>
+            <trans-unit id="form.page.excerpt" resname="form.page.excerpt">
+                <source>Excerpt</source>
+                <target>Excerpt</target>
+            </trans-unit>
+            <trans-unit id="form.page.excerpt_placeholder" resname="form.page.excerpt_placeholder">
+                <source>Short description for previews</source>
+                <target>Short description for previews</target>
+            </trans-unit>
+            <trans-unit id="form.page.content" resname="form.page.content">
+                <source>Content</source>
+                <target>Content</target>
+            </trans-unit>
+            <trans-unit id="form.page.content_placeholder" resname="form.page.content_placeholder">
+                <source>Page content (HTML allowed)</source>
+                <target>Page content (HTML allowed)</target>
+            </trans-unit>
+            <trans-unit id="form.page.status" resname="form.page.status">
+                <source>Status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="form.page.status_draft" resname="form.page.status_draft">
+                <source>Draft</source>
+                <target>Draft</target>
+            </trans-unit>
+            <trans-unit id="form.page.status_published" resname="form.page.status_published">
+                <source>Published</source>
+                <target>Published</target>
+            </trans-unit>
+            <trans-unit id="form.page.template" resname="form.page.template">
+                <source>Template</source>
+                <target>Template</target>
+            </trans-unit>
+            <trans-unit id="form.page.template_placeholder" resname="form.page.template_placeholder">
+                <source>-- Default Layout --</source>
+                <target>-- Default Layout --</target>
+            </trans-unit>
+            <trans-unit id="form.page.template_help" resname="form.page.template_help">
+                <source>Select the layout for this page</source>
+                <target>Select the layout for this page</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_menus" resname="form.page.sec_menus">
+                <source>Menus</source>
+                <target>Menus</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_menus_desc" resname="form.page.sec_menus_desc">
+                <source>Sidebar and active menu highlight.</source>
+                <target>Sidebar and active menu highlight.</target>
+            </trans-unit>
+            <trans-unit id="form.page.sidebar_menu" resname="form.page.sidebar_menu">
+                <source>Sidebar Left Menu</source>
+                <target>Sidebar Left Menu</target>
+            </trans-unit>
+            <trans-unit id="form.page.sidebar_menu_placeholder" resname="form.page.sidebar_menu_placeholder">
+                <source>-- Use category default --</source>
+                <target>-- Use category default --</target>
+            </trans-unit>
+            <trans-unit id="form.page.sidebar_menu_help" resname="form.page.sidebar_menu_help">
+                <source>Override category default menu for left sidebar</source>
+                <target>Override category default menu for left sidebar</target>
+            </trans-unit>
+            <trans-unit id="form.page.active_menu" resname="form.page.active_menu">
+                <source>Active Menu</source>
+                <target>Active Menu</target>
+            </trans-unit>
+            <trans-unit id="form.page.active_menu_placeholder" resname="form.page.active_menu_placeholder">
+                <source>-- Select a menu --</source>
+                <target>-- Select a menu --</target>
+            </trans-unit>
+            <trans-unit id="form.page.active_menu_help" resname="form.page.active_menu_help">
+                <source>Menu to highlight when viewing this page</source>
+                <target>Menu to highlight when viewing this page</target>
+            </trans-unit>
+            <trans-unit id="form.page.active_menu_item" resname="form.page.active_menu_item">
+                <source>Active Menu Item</source>
+                <target>Active Menu Item</target>
+            </trans-unit>
+            <trans-unit id="form.page.active_menu_item_placeholder" resname="form.page.active_menu_item_placeholder">
+                <source>-- Select a menu first --</source>
+                <target>-- Select a menu first --</target>
+            </trans-unit>
+            <trans-unit id="form.page.active_menu_item_placeholder_select" resname="form.page.active_menu_item_placeholder_select">
+                <source>-- Select a menu item --</source>
+                <target>-- Select a menu item --</target>
+            </trans-unit>
+            <trans-unit id="form.page.active_menu_item_help" resname="form.page.active_menu_item_help">
+                <source>Specific menu item to highlight</source>
+                <target>Specific menu item to highlight</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_media" resname="form.page.sec_media">
+                <source>Media &amp; SEO</source>
+                <target>Media &amp; SEO</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_media_desc" resname="form.page.sec_media_desc">
+                <source>OG image and meta fields.</source>
+                <target>OG image and meta fields.</target>
+            </trans-unit>
+            <trans-unit id="form.page.og_image" resname="form.page.og_image">
+                <source>OG Image</source>
+                <target>OG Image</target>
+            </trans-unit>
+            <trans-unit id="form.page.og_image_help" resname="form.page.og_image_help">
+                <source>Open Graph image</source>
+                <target>Open Graph image</target>
+            </trans-unit>
+            <trans-unit id="form.page.meta_title" resname="form.page.meta_title">
+                <source>Meta Title</source>
+                <target>Meta Title</target>
+            </trans-unit>
+            <trans-unit id="form.page.meta_title_placeholder" resname="form.page.meta_title_placeholder">
+                <source>Override page title for SEO</source>
+                <target>Override page title for SEO</target>
+            </trans-unit>
+            <trans-unit id="form.page.meta_title_help" resname="form.page.meta_title_help">
+                <source>Leave empty to use page title</source>
+                <target>Leave empty to use page title</target>
+            </trans-unit>
+            <trans-unit id="form.page.meta_description" resname="form.page.meta_description">
+                <source>Meta Description</source>
+                <target>Meta Description</target>
+            </trans-unit>
+            <trans-unit id="form.page.meta_description_placeholder" resname="form.page.meta_description_placeholder">
+                <source>SEO description</source>
+                <target>SEO description</target>
+            </trans-unit>
+            <trans-unit id="form.page.meta_description_help" resname="form.page.meta_description_help">
+                <source>Leave empty to use excerpt</source>
+                <target>Leave empty to use excerpt</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_faq" resname="form.page.sec_faq">
+                <source>FAQ</source>
+                <target>FAQ</target>
+            </trans-unit>
+            <trans-unit id="form.page.sec_faq_desc" resname="form.page.sec_faq_desc">
+                <source>Optional FAQ block for this page.</source>
+                <target>Optional FAQ block for this page.</target>
+            </trans-unit>
+            <trans-unit id="form.page.faq" resname="form.page.faq">
+                <source>FAQ Block</source>
+                <target>FAQ Block</target>
+            </trans-unit>
+            <trans-unit id="form.page.faq_placeholder" resname="form.page.faq_placeholder">
+                <source>-- No FAQ --</source>
+                <target>-- No FAQ --</target>
+            </trans-unit>
+            <trans-unit id="form.page.faq_help" resname="form.page.faq_help">
+                <source>Optional: select an FAQ block to display on this page</source>
+                <target>Optional: select an FAQ block to display on this page</target>
+            </trans-unit>
+            <!-- Form category -->
+            <trans-unit id="form.category.sec_general" resname="form.category.sec_general">
+                <source>General Information</source>
+                <target>General Information</target>
+            </trans-unit>
+            <trans-unit id="form.category.sec_general_desc" resname="form.category.sec_general_desc">
+                <source>Naming and basic settings for this category.</source>
+                <target>Naming and basic settings for this category.</target>
+            </trans-unit>
+            <trans-unit id="form.category.name" resname="form.category.name">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="form.category.name_placeholder" resname="form.category.name_placeholder">
+                <source>e.g., Documentation</source>
+                <target>e.g., Documentation</target>
+            </trans-unit>
+            <trans-unit id="form.category.name_help" resname="form.category.name_help">
+                <source>The displayed name of the category.</source>
+                <target>The displayed name of the category.</target>
+            </trans-unit>
+            <trans-unit id="form.category.description" resname="form.category.description">
+                <source>Description</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="form.category.description_placeholder" resname="form.category.description_placeholder">
+                <source>Brief description of this category</source>
+                <target>Brief description of this category</target>
+            </trans-unit>
+            <trans-unit id="form.category.description_help" resname="form.category.description_help">
+                <source>A short description for internal use or SEO purposes.</source>
+                <target>A short description for internal use or SEO purposes.</target>
+            </trans-unit>
+            <trans-unit id="form.category.default_menu" resname="form.category.default_menu">
+                <source>Default Sidebar Menu</source>
+                <target>Default Sidebar Menu</target>
+            </trans-unit>
+            <trans-unit id="form.category.default_menu_placeholder" resname="form.category.default_menu_placeholder">
+                <source>-- No default menu --</source>
+                <target>-- No default menu --</target>
+            </trans-unit>
+            <trans-unit id="form.category.default_menu_help" resname="form.category.default_menu_help">
+                <source>Menu to display in left sidebar for pages in this category</source>
+                <target>Menu to display in left sidebar for pages in this category</target>
+            </trans-unit>
+            <trans-unit id="form.category.slug" resname="form.category.slug">
+                <source>Slug</source>
+                <target>Slug</target>
+            </trans-unit>
+            <trans-unit id="form.category.slug_placeholder" resname="form.category.slug_placeholder">
+                <source>e.g., documentation</source>
+                <target>e.g., documentation</target>
+            </trans-unit>
+            <trans-unit id="form.category.slug_help" resname="form.category.slug_help">
+                <source>URL-friendly identifier (lowercase, hyphens only)</source>
+                <target>URL-friendly identifier (lowercase, hyphens only)</target>
+            </trans-unit>
+            <!-- Validation -->
+            <trans-unit id="validation.unique_route" resname="validation.unique_route">
+                <source>This route is already in use.</source>
+                <target>This route is already in use.</target>
+            </trans-unit>
+            <trans-unit id="validation.unique_slug" resname="validation.unique_slug">
+                <source>This slug is already in use.</source>
+                <target>This slug is already in use.</target>
+            </trans-unit>
+            <trans-unit id="validation.slug_pattern" resname="validation.slug_pattern">
+                <source>Slug must be lowercase alphanumeric with hyphens.</source>
+                <target>Slug must be lowercase alphanumeric with hyphens.</target>
+            </trans-unit>
+            <!-- Controller / messages -->
+            <trans-unit id="error.page_not_found" resname="error.page_not_found">
+                <source>Page not found.</source>
+                <target>Page not found.</target>
+            </trans-unit>
+            <!-- Search -->
+            <trans-unit id="search.category.pages" resname="search.category.pages">
+                <source>Pages</source>
+                <target>Pages</target>
+            </trans-unit>
+            <!-- List fields (admin) -->
+            <trans-unit id="admin.list.id" resname="admin.list.id">
+                <source>ID</source>
+                <target>ID</target>
+            </trans-unit>
+            <trans-unit id="admin.list.title" resname="admin.list.title">
+                <source>Title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="admin.list.status" resname="admin.list.status">
+                <source>Status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="admin.list.category" resname="admin.list.category">
+                <source>Category</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="admin.list.updated" resname="admin.list.updated">
+                <source>Updated</source>
+                <target>Updated</target>
+            </trans-unit>
+            <trans-unit id="admin.list.name" resname="admin.list.name">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="admin.list.slug" resname="admin.list.slug">
+                <source>Slug</source>
+                <target>Slug</target>
+            </trans-unit>
+            <trans-unit id="admin.list.pages" resname="admin.list.pages">
+                <source>Pages</source>
+                <target>Pages</target>
+            </trans-unit>
+            <!-- Breadcrumb -->
+            <trans-unit id="breadcrumb.home" resname="breadcrumb.home">
+                <source>Home</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.page_default" resname="breadcrumb.page_default">
+                <source>Page</source>
+                <target>Page</target>
+            </trans-unit>
+            <!-- Layout hero -->
+            <trans-unit id="layout.hero.featured" resname="layout.hero.featured">
+                <source>Featured</source>
+                <target>Featured</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
