@@ -22,8 +22,8 @@ final readonly class PageBreadcrumbBuilder implements BreadcrumbBuilderInterface
         private RequestStack $requestStack,
         private UrlGeneratorInterface $urlGenerator,
         private TranslatorInterface $translator,
-        private string $pageClass = \Symkit\PageBundle\Entity\Page::class,
-        private string $pageRouteName = 'page_show',
+        private string $pageClass,
+        private string $pageRouteName,
     ) {
     }
 

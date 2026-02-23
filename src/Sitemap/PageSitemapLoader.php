@@ -43,7 +43,7 @@ final readonly class PageSitemapLoader implements SitemapLoaderInterface
 
             $priority = null !== $route->getSitemapPriority()
                 ? (string) $route->getSitemapPriority()
-                : $this->defaultPriorityForPath($route->getPath() ?? '');
+                : $this->defaultPriorityForPath($route->getPath());
 
             $images = [];
             if ($ogImage = $page->getOgImage()) {

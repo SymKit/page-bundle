@@ -60,6 +60,8 @@ final class PageBreadcrumbBuilderTest extends TestCase
             new RequestStack(),
             $this->createMock(UrlGeneratorInterface::class),
             $this->createMock(TranslatorInterface::class),
+            \Symkit\PageBundle\Entity\Page::class,
+            'page_show',
         );
         $builder->build($service);
     }
@@ -104,7 +106,13 @@ final class PageBreadcrumbBuilderTest extends TestCase
             }
         });
 
-        $builder = new PageBreadcrumbBuilder($requestStack, $urlGenerator, $translator);
+        $builder = new PageBreadcrumbBuilder(
+            $requestStack,
+            $urlGenerator,
+            $translator,
+            \Symkit\PageBundle\Entity\Page::class,
+            'page_show',
+        );
         $builder->build($service);
     }
 }

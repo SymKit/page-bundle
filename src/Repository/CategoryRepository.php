@@ -31,10 +31,12 @@ final class CategoryRepository extends ServiceEntityRepository
      */
     public function findAllOrdered(): array
     {
-        return $this->createQueryBuilder('c')
+        /** @var Category[] $result */
+        $result = $this->createQueryBuilder('c')
             ->orderBy('c.name', 'ASC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+
+        return $result;
     }
 }

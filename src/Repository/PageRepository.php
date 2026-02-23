@@ -26,13 +26,15 @@ final class PageRepository extends ServiceEntityRepository implements PageReposi
 
     public function findBySlug(string $slug): ?Page
     {
-        return $this->createQueryBuilder('p')
+        /** @var Page|null $result */
+        $result = $this->createQueryBuilder('p')
             ->innerJoin('p.route', 'r')
             ->where('r.path = :path')
             ->setParameter('path', '/'.$slug)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getOneOrNullResult();
+
+        return $result;
     }
 
     /**
@@ -54,7 +56,10 @@ final class PageRepository extends ServiceEntityRepository implements PageReposi
             $qb->setFirstResult($offset);
         }
 
-        return $qb->getQuery()->getResult();
+        /** @var Page[] $result */
+        $result = $qb->getQuery()->getResult();
+
+        return $result;
     }
 
     public function countPublished(): int
@@ -71,48 +76,67 @@ final class PageRepository extends ServiceEntityRepository implements PageReposi
     /**
      * @return Page[]
      */
+    /**
+     * @return Page[]
+     */
     public function findByStatus(string $status): array
     {
-        return $this->createQueryBuilder('p')
+        /** @var Page[] $result */
+        $result = $this->createQueryBuilder('p')
             ->where('p.status = :status')
             ->setParameter('status', $status)
             ->orderBy('p.updatedAt', 'DESC')
             ->getQuery()
-            ->getResult()
-        ;
-    }
+            ->getResult();
 
-    public function findByMedia(Media $media): array
-    {
-        return $this->createQueryBuilder('p')
-            ->where('p.ogImage = :media')
-            ->setParameter('media', $media)
-            ->orderBy('p.updatedAt', 'DESC')
-            ->getQuery()
-            ->getResult()
-        ;
+        return $result;
     }
 
     /**
      * @return Page[]
      */
+    public function findByMedia(Media $media): array
+    {
+        /** @var Page[] $result */
+        $result = $this->createQueryBuilder('p')
+            ->where('p.ogImage = :media')
+            ->setParameter('media', $media)
+            ->orderBy('p.updatedAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $result;
+    }
+
+    /**
+     * @return Page[]
+     */
+    /**
+     * @return Page[]
+     */
     public function findByCategory(Category $category): array
     {
-        return $this->createQueryBuilder('p')
+        /** @var Page[] $result */
+        $result = $this->createQueryBuilder('p')
             ->where('p.category = :category')
             ->setParameter('category', $category)
             ->orderBy('p.updatedAt', 'DESC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+
+        return $result;
     }
 
     /**
      * @return iterable<Page>
      */
+    /**
+     * @return iterable<Page>
+     */
     public function findForGlobalSearch(string $query, int $limit = 5): iterable
     {
-        return $this->createQueryBuilder('p')
+        /** @var iterable<Page> $result */
+        $result = $this->createQueryBuilder('p')
             ->leftJoin('p.route', 'r')
             ->addSelect('r')
             ->where('p.title LIKE :query OR p.content LIKE :query')
@@ -120,7 +144,8 @@ final class PageRepository extends ServiceEntityRepository implements PageReposi
             ->setMaxResults($limit)
             ->orderBy('p.updatedAt', 'DESC')
             ->getQuery()
-            ->toIterable()
-        ;
+            ->toIterable();
+
+        return $result;
     }
 }

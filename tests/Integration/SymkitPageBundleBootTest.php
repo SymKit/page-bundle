@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle\Tests\Integration;
 
+use PHPUnit\Framework\Attributes\Group;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symkit\PageBundle\Service\PageLayoutRegistry;
@@ -45,9 +46,7 @@ final class SymkitPageBundleBootTest extends KernelTestCase
         return $kernel;
     }
 
-    /**
-     * @group integration
-     */
+    #[Group('integration')]
     public function testBundleBoots(): void
     {
         self::bootKernel();
@@ -58,9 +57,7 @@ final class SymkitPageBundleBootTest extends KernelTestCase
         self::assertTrue($container->hasParameter('symkit_page.front.enabled'));
     }
 
-    /**
-     * @group integration
-     */
+    #[Group('integration')]
     public function testPageLayoutRegistryIsRegistered(): void
     {
         self::bootKernel();

@@ -20,7 +20,6 @@ use Symkit\FormBundle\Form\Type\SlugType;
 use Symkit\MediaBundle\Form\MediaType;
 use Symkit\MenuBundle\Entity\Menu;
 use Symkit\MenuBundle\Entity\MenuItem;
-use Symkit\PageBundle\Entity\Category;
 use Symkit\PageBundle\Entity\Page;
 use Symkit\PageBundle\Service\PageLayoutRegistry;
 
@@ -32,8 +31,8 @@ final class PageType extends AbstractType
      */
     public function __construct(
         private readonly PageLayoutRegistry $layoutRegistry,
-        private readonly string $pageClass = Page::class,
-        private readonly string $categoryClass = Category::class,
+        private readonly string $pageClass,
+        private readonly string $categoryClass,
     ) {
     }
 
@@ -177,7 +176,11 @@ final class PageType extends AbstractType
 
         $builder->get('activeMenu')->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event): void {
             $form = $event->getForm();
-            $this->updateMenuItemChoices($form->getParent(), $form->getData());
+            $parent = $form->getParent();
+            if ($parent instanceof FormInterface) {
+                $data = $form->getData();
+                $this->updateMenuItemChoices($parent, $data instanceof Menu ? $data : null);
+            }
         });
     }
 

@@ -13,7 +13,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symkit\FormBundle\Form\Type\FormSectionType;
 use Symkit\FormBundle\Form\Type\SlugType;
 use Symkit\MenuBundle\Entity\Menu;
-use Symkit\PageBundle\Entity\Category;
 
 final class CategoryType extends AbstractType
 {
@@ -21,7 +20,7 @@ final class CategoryType extends AbstractType
      * @param class-string $categoryClass
      */
     public function __construct(
-        private readonly string $categoryClass = Category::class,
+        private readonly string $categoryClass,
     ) {
     }
 

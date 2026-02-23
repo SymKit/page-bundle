@@ -9,12 +9,12 @@ parameters:
     bootstrapFiles:
         - phpstan-bootstrap.php
     ignoreErrors:
-        # Optional Symkit packages and Doctrine return types
-        - '~Call to an undefined method Symkit\\.*~'
-        - '~Parameter .* of method .* expects~'
-        - '~should return .* but returns mixed~'
-        - '~return type has no value type specified in iterable type array~'
-        - '~should return iterable<.*> but returns iterable~'
-        - '~Expression on left side of \?\? is not nullable~'
-        - '~Strict comparison using !== between null and string will always evaluate to true~'
+        # Form type 2nd argument: Symkit types (FormSectionType, SlugType, MediaType) are FormTypeInterface
+        - '~Parameter #2 \$type of method Symfony\\Component\\Form\\FormBuilderInterface::add\(\) expects class-string.*, string given\.~'
+        # Optional Symkit packages: Menu::getItems(), Faq::getFaqItems(), UrlGenerator::generate(Route)
+        - '~Call to an undefined method Symkit\\MenuBundle\\Entity\\Menu::getItems\(\)\.~'
+        - '~Call to an undefined method Symkit\\FaqBundle\\Entity\\Faq::getFaqItems\(\)\.~'
+        - '~Parameter #1 \$name of method.*UrlGeneratorInterface::generate\(\) expects string, object given\.~'
+        # MediaUrlGenerator::generateUrl() may be typed as string in stubs
+        - '~Strict comparison using !== between null and string will always evaluate to true\.~'
     reportUnmatchedIgnoredErrors: true

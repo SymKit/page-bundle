@@ -21,7 +21,7 @@ final readonly class MetadataPopulator implements MetadataPopulatorInterface, Js
     public function __construct(
         private MediaUrlGenerator $mediaUrlGenerator,
         private UrlGeneratorInterface $urlGenerator,
-        private string $pageClass = \Symkit\PageBundle\Entity\Page::class,
+        private string $pageClass,
     ) {
     }
 

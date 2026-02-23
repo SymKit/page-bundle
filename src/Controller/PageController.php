@@ -14,7 +14,7 @@ use Symkit\PageBundle\Repository\PageRepository;
 use Symkit\PageBundle\Service\PageLayoutRegistry;
 use Twig\Environment;
 
-final class PageController
+final readonly class PageController
 {
     public function __construct(
         private readonly PageRepository $pageRepository,
