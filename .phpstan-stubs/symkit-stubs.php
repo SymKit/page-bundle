@@ -132,6 +132,8 @@ namespace Symkit\MenuBundle\Manager {
 
 namespace Symkit\MenuBundle\Entity {
 
+    use Doctrine\Common\Collections\Collection;
+
     class Menu
     {
         public function getCode(): string
@@ -142,6 +144,14 @@ namespace Symkit\MenuBundle\Entity {
         public function getId(): int
         {
             return 0;
+        }
+
+        /**
+         * @return Collection<int, MenuItem>
+         */
+        public function getItems(): Collection
+        {
+            return new \Doctrine\Common\Collections\ArrayCollection();
         }
     }
 
@@ -162,7 +172,7 @@ namespace Symkit\MenuBundle\Entity {
             return null;
         }
 
-        public function getRoute(): ?object
+        public function getRoute(): ?\Symkit\RoutingBundle\Entity\Route
         {
             return null;
         }
@@ -255,12 +265,34 @@ namespace Symkit\FaqBundle\Entity {
 
     class Faq
     {
+        /**
+         * @return iterable<FaqItem>
+         */
+        public function getFaqItems(): iterable
+        {
+            return [];
+        }
+    }
+
+    class FaqItem
+    {
+        public function getQuestion(): ?string
+        {
+            return null;
+        }
+
+        public function getAnswer(): ?string
+        {
+            return null;
+        }
     }
 }
 
 namespace Symkit\MediaBundle\Form {
 
-    class MediaType
+    use Symfony\Component\Form\AbstractType;
+
+    class MediaType extends AbstractType
     {
     }
 }
@@ -274,7 +306,7 @@ namespace Symkit\MediaBundle\Service {
             return '';
         }
 
-        public function generateUrl(object $media): string
+        public function generateUrl(object $media): ?string
         {
             return '';
         }
@@ -388,11 +420,13 @@ namespace Symkit\SitemapBundle\Contract {
 
 namespace Symkit\FormBundle\Form\Type {
 
-    class FormSectionType
+    use Symfony\Component\Form\AbstractType;
+
+    class FormSectionType extends AbstractType
     {
     }
 
-    class SlugType
+    class SlugType extends AbstractType
     {
     }
 }

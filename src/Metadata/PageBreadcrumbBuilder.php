@@ -49,9 +49,10 @@ final readonly class PageBreadcrumbBuilder implements BreadcrumbBuilderInterface
 
             while (null !== $item) {
                 $url = $item->getUrl();
-                if (null !== $item->getRoute()) {
+                $route = $item->getRoute();
+                if (null !== $route) {
                     try {
-                        $url = $this->urlGenerator->generate($item->getRoute(), [], UrlGeneratorInterface::ABSOLUTE_URL);
+                        $url = $this->urlGenerator->generate($route->getName(), [], UrlGeneratorInterface::ABSOLUTE_URL);
                     } catch (Exception) {
                         $url = null;
                     }
