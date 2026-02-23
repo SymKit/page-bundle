@@ -31,6 +31,7 @@ final readonly class PageRouteControllerListener
             return;
         }
 
+        /** @var \Symkit\PageBundle\Entity\Page $entity */
         $route = $entity->getRoute();
         if (null === $route || null !== $route->getController()) {
             return;

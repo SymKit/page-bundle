@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle\Tests\Integration;
 
-use Symkit\PageBundle\Service\PageLayoutRegistry;
-use Symkit\PageBundle\SymkitPageBundle;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symkit\PageBundle\Service\PageLayoutRegistry;
+use Symkit\PageBundle\SymkitPageBundle;
 
 /**
  * Integration tests require Doctrine and full container.
- * Run with: phpunit --testsuite Unit
+ * Run with: phpunit --testsuite Unit.
  */
 final class SymkitPageBundleBootTest extends KernelTestCase
 {
     protected function tearDown(): void
     {
         parent::tearDown();
-        \restore_exception_handler();
+        restore_exception_handler();
     }
 
     protected static function getKernelClass(): string
@@ -73,4 +73,3 @@ final class SymkitPageBundleBootTest extends KernelTestCase
         self::assertArrayHasKey('simple', $layouts);
     }
 }
-

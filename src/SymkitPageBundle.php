@@ -4,25 +4,26 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle;
 
+use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symkit\PageBundle\Controller\Admin\CategoryController;
 use Symkit\PageBundle\Controller\Admin\PageController as AdminPageController;
 use Symkit\PageBundle\Controller\PageController as FrontPageController;
 use Symkit\PageBundle\Entity\Category;
 use Symkit\PageBundle\Entity\Page;
+use Symkit\PageBundle\EventListener\PageRouteControllerListener;
 use Symkit\PageBundle\Form\CategoryType;
 use Symkit\PageBundle\Form\PageType;
 use Symkit\PageBundle\Metadata\MetadataPopulator;
 use Symkit\PageBundle\Metadata\PageBreadcrumbBuilder;
-use Symkit\PageBundle\EventListener\PageRouteControllerListener;
 use Symkit\PageBundle\Repository\CategoryRepository;
 use Symkit\PageBundle\Repository\PageRepository;
 use Symkit\PageBundle\Search\PageSearchProvider;
 use Symkit\PageBundle\Service\PageLayoutRegistry;
 use Symkit\PageBundle\Sitemap\PageSitemapLoader;
-use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class SymkitPageBundle extends AbstractBundle
 {
@@ -38,19 +39,19 @@ class SymkitPageBundle extends AbstractBundle
                 ->arrayNode('layouts')
                     ->defaultValue([
                         'simple' => [
-                            'label' => 'Layout Simple',
+                            'label' => 'layout.simple',
                             'path' => '@SymkitPage/layout/simple.html.twig',
                         ],
                         'doc' => [
-                            'label' => 'Layout Documentation',
+                            'label' => 'layout.doc',
                             'path' => '@SymkitPage/layout/content.html.twig',
                         ],
                         'with_toc' => [
-                            'label' => 'Layout with TOC',
+                            'label' => 'layout.with_toc',
                             'path' => '@SymkitPage/layout/with_toc.html.twig',
                         ],
                         'hero' => [
-                            'label' => 'Layout Hero',
+                            'label' => 'layout.hero',
                             'path' => '@SymkitPage/layout/hero.html.twig',
                         ],
                     ])
@@ -138,7 +139,8 @@ class SymkitPageBundle extends AbstractBundle
         $services = $container->services();
 
         $services->set(PageLayoutRegistry::class)
-            ->arg('$layouts', '%symkit_page.layouts%');
+            ->arg('$layouts', '%symkit_page.layouts%')
+            ->arg('$translator', new Reference('translator'));
 
         $services->set($config['entity']['page_repository_class'])
             ->arg('$entityClass', '%symkit_page.entity.page_class%');
@@ -168,9 +170,11 @@ class SymkitPageBundle extends AbstractBundle
         if ($config['admin']['enabled']) {
             $services->set(AdminPageController::class)
                 ->arg('$pageClass', '%symkit_page.entity.page_class%')
+                ->arg('$translator', new Reference('translator'))
                 ->tag('controller.service_arguments');
             $services->set(CategoryController::class)
                 ->arg('$categoryClass', '%symkit_page.entity.category_class%')
+                ->arg('$translator', new Reference('translator'))
                 ->tag('controller.service_arguments');
         }
 
@@ -202,7 +206,7 @@ class SymkitPageBundle extends AbstractBundle
 
         $builder->prependExtensionConfig('twig', [
             'paths' => [
-                $bundlePath . '/templates' => 'SymkitPage',
+                $bundlePath.'/templates' => 'SymkitPage',
             ],
             'globals' => [
                 'base_layout' => $baseLayout,
@@ -212,7 +216,7 @@ class SymkitPageBundle extends AbstractBundle
         $builder->prependExtensionConfig('framework', [
             'asset_mapper' => [
                 'paths' => [
-                    $bundlePath . '/assets/controllers' => 'page',
+                    $bundlePath.'/assets/controllers' => 'page',
                 ],
             ],
         ]);

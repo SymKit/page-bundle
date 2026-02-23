@@ -6,14 +6,14 @@ namespace Symkit\PageBundle\Entity;
 
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symkit\FaqBundle\Entity\Faq;
 use Symkit\MediaBundle\Entity\Media;
 use Symkit\MenuBundle\Entity\Menu;
 use Symkit\MenuBundle\Entity\MenuItem;
 use Symkit\PageBundle\Repository\PageRepository;
 use Symkit\RoutingBundle\Entity\Route;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -49,7 +49,7 @@ class Page
     #[ORM\Column(length: 20)]
     #[Assert\NotBlank(groups: ['edit', 'create'])]
     #[Assert\Choice(choices: [self::STATUS_DRAFT, self::STATUS_PUBLISHED], groups: ['edit', 'create'])]
-    private ?string $status = self::STATUS_DRAFT;
+    private string $status = self::STATUS_DRAFT;
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $template = null;
@@ -122,8 +122,8 @@ class Page
             $this->route->setIsActive($this->isPublished());
 
             if ($this->slug) {
-                $this->route->setPath('/' . $this->slug);
-                $this->route->setName('page_' . $this->slug);
+                $this->route->setPath('/'.$this->slug);
+                $this->route->setName('page_'.$this->slug);
                 $this->route->setDefaults(['slug' => $this->slug]);
             }
         }
@@ -150,9 +150,8 @@ class Page
     {
         if (null === $this->slug && null !== $this->route) {
             $path = $this->route->getPath();
-            if (null !== $path) {
-                return mb_ltrim($path, '/');
-            }
+
+            return '' !== $path ? mb_ltrim($path, '/') : '';
         }
 
         return $this->slug;
@@ -163,7 +162,7 @@ class Page
         $this->slug = $slug;
 
         if (null !== $this->route) {
-            $this->route->setPath($slug ? '/' . $slug : null);
+            $this->route->setPath($slug ? '/'.$slug : null);
         }
 
         return $this;
@@ -193,7 +192,7 @@ class Page
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): string
     {
         return $this->status;
     }

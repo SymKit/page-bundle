@@ -19,9 +19,20 @@
         "symkit/media-bundle": "OG images and media picker"
     },
     "require-dev": {
+        "deptrac/deptrac": "^2.0",
         "doctrine/doctrine-bundle": "^2.11 || ^3.0",
+        "friendsofphp/php-cs-fixer": "^3.64",
+        "infection/infection": "^0.29",
+        "phpro/grumphp": "^2.0",
+        "phpstan/phpstan": "^2.0",
         "phpunit/phpunit": "^10.5 || ^11.0",
-        "symkit/bundle-ai-kit": "~0.0.1"
+        "symkit/bundle-ai-kit": "~0.0.1",
+        "doctrine/orm": "^3.0",
+        "symfony/translation": "^7.0 || ^8.0",
+        "symfony/validator": "^7.0 || ^8.0",
+        "twig/twig": "^3.0 || ^4.0",
+        "symfony/form": "^7.0 || ^8.0",
+        "phpstan/phpstan-doctrine": "^2.0"
     },
     "config": {
         "allow-plugins": {

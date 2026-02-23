@@ -345,6 +345,64 @@
                 <source>Pages</source>
                 <target>Pages</target>
             </trans-unit>
+            <trans-unit id="search.no_route" resname="search.no_route">
+                <source>No route</source>
+                <target>No route</target>
+            </trans-unit>
+            <!-- Layout labels -->
+            <trans-unit id="layout.simple" resname="layout.simple">
+                <source>Layout Simple</source>
+                <target>Layout Simple</target>
+            </trans-unit>
+            <trans-unit id="layout.doc" resname="layout.doc">
+                <source>Layout Documentation</source>
+                <target>Layout Documentation</target>
+            </trans-unit>
+            <trans-unit id="layout.with_toc" resname="layout.with_toc">
+                <source>Layout with TOC</source>
+                <target>Layout with TOC</target>
+            </trans-unit>
+            <trans-unit id="layout.hero" resname="layout.hero">
+                <source>Layout Hero</source>
+                <target>Layout Hero</target>
+            </trans-unit>
+            <!-- Admin page titles and breadcrumbs -->
+            <trans-unit id="admin.page.list_title" resname="admin.page.list_title">
+                <source>Page Management</source>
+                <target>Page Management</target>
+            </trans-unit>
+            <trans-unit id="admin.page.edit_title" resname="admin.page.edit_title">
+                <source>Edit Page</source>
+                <target>Edit Page</target>
+            </trans-unit>
+            <trans-unit id="admin.page.seo_list" resname="admin.page.seo_list">
+                <source>Manage pages and their content.</source>
+                <target>Manage pages and their content.</target>
+            </trans-unit>
+            <trans-unit id="admin.breadcrumb.pages" resname="admin.breadcrumb.pages">
+                <source>Pages</source>
+                <target>Pages</target>
+            </trans-unit>
+            <trans-unit id="admin.category.list_title" resname="admin.category.list_title">
+                <source>Category Management</source>
+                <target>Category Management</target>
+            </trans-unit>
+            <trans-unit id="admin.category.create_title" resname="admin.category.create_title">
+                <source>Create Category</source>
+                <target>Create Category</target>
+            </trans-unit>
+            <trans-unit id="admin.category.edit_title" resname="admin.category.edit_title">
+                <source>Edit Category</source>
+                <target>Edit Category</target>
+            </trans-unit>
+            <trans-unit id="admin.category.seo_list" resname="admin.category.seo_list">
+                <source>Manage page categories.</source>
+                <target>Manage page categories.</target>
+            </trans-unit>
+            <trans-unit id="admin.breadcrumb.categories" resname="admin.breadcrumb.categories">
+                <source>Categories</source>
+                <target>Categories</target>
+            </trans-unit>
             <!-- List fields (admin) -->
             <trans-unit id="admin.list.id" resname="admin.list.id">
                 <source>ID</source>

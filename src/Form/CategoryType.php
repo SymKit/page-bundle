@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle\Form;
 
-use Symkit\FormBundle\Form\Type\FormSectionType;
-use Symkit\FormBundle\Form\Type\SlugType;
-use Symkit\MenuBundle\Entity\Menu;
-use Symkit\PageBundle\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symkit\FormBundle\Form\Type\FormSectionType;
+use Symkit\FormBundle\Form\Type\SlugType;
+use Symkit\MenuBundle\Entity\Menu;
+use Symkit\PageBundle\Entity\Category;
 
 final class CategoryType extends AbstractType
 {

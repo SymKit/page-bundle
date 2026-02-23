@@ -28,7 +28,7 @@ class PageRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
             ->innerJoin('p.route', 'r')
             ->where('r.path = :path')
-            ->setParameter('path', '/' . $slug)
+            ->setParameter('path', '/'.$slug)
             ->getQuery()
             ->getOneOrNullResult()
         ;
@@ -115,7 +115,7 @@ class PageRepository extends ServiceEntityRepository
             ->leftJoin('p.route', 'r')
             ->addSelect('r')
             ->where('p.title LIKE :query OR p.content LIKE :query')
-            ->setParameter('query', '%' . $query . '%')
+            ->setParameter('query', '%'.$query.'%')
             ->setMaxResults($limit)
             ->orderBy('p.updatedAt', 'DESC')
             ->getQuery()

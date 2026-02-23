@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle\Controller\Admin;
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Symkit\CrudBundle\Controller\AbstractCrudController;
 use Symkit\MenuBundle\Attribute\ActiveMenu;
 use Symkit\MetadataBundle\Attribute\Breadcrumb;
 use Symkit\MetadataBundle\Attribute\Seo;
 use Symkit\PageBundle\Entity\Category;
 use Symkit\PageBundle\Form\CategoryType;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 final class CategoryController extends AbstractCrudController
 {
@@ -20,36 +21,37 @@ final class CategoryController extends AbstractCrudController
      */
     public function __construct(
         private readonly string $categoryClass,
+        private readonly TranslatorInterface $translator,
     ) {
     }
 
-    #[Seo(title: 'Category Management', description: 'Manage page categories.')]
-    #[Breadcrumb(context: 'admin', items: [['label' => 'Categories', 'route' => 'admin_category_list']])]
+    #[Seo(title: 'admin.category.list_title', description: 'admin.category.seo_list')]
+    #[Breadcrumb(context: 'admin', items: [['label' => 'admin.breadcrumb.categories', 'route' => 'admin_category_list']])]
     #[ActiveMenu('admin', 'categories')]
     public function list(Request $request): Response
     {
         return $this->renderIndex($request, [
-            'page_title' => 'Category Management',
+            'page_title' => $this->translator->trans('admin.category.list_title', [], 'SymkitPageBundle'),
         ]);
     }
 
-    #[Seo(title: 'Create Category')]
-    #[Breadcrumb(context: 'admin', items: [['label' => 'Categories', 'route' => 'admin_category_list']])]
+    #[Seo(title: 'admin.category.create_title')]
+    #[Breadcrumb(context: 'admin', items: [['label' => 'admin.breadcrumb.categories', 'route' => 'admin_category_list']])]
     #[ActiveMenu('admin', 'categories')]
     public function create(Request $request): Response
     {
         return $this->renderNew(new $this->categoryClass(), $request, [
-            'page_title' => 'Create Category',
+            'page_title' => $this->translator->trans('admin.category.create_title', [], 'SymkitPageBundle'),
         ]);
     }
 
-    #[Seo(title: 'Edit Category')]
-    #[Breadcrumb(context: 'admin', items: [['label' => 'Categories', 'route' => 'admin_category_list']])]
+    #[Seo(title: 'admin.category.edit_title')]
+    #[Breadcrumb(context: 'admin', items: [['label' => 'admin.breadcrumb.categories', 'route' => 'admin_category_list']])]
     #[ActiveMenu('admin', 'categories')]
     public function edit(Category $category, Request $request): Response
     {
         return $this->renderEdit($category, $request, [
-            'page_title' => 'Edit Category',
+            'page_title' => $this->translator->trans('admin.category.edit_title', [], 'SymkitPageBundle'),
         ]);
     }
 

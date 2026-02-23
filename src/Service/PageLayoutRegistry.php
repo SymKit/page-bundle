@@ -5,14 +5,16 @@ declare(strict_types=1);
 namespace Symkit\PageBundle\Service;
 
 use InvalidArgumentException;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
-final class PageLayoutRegistry
+final readonly class PageLayoutRegistry
 {
     /**
      * @param array<string, array{label: string, path: string}> $layouts
      */
     public function __construct(
-        private readonly array $layouts,
+        private array $layouts,
+        private TranslatorInterface $translator,
     ) {
     }
 
@@ -31,7 +33,8 @@ final class PageLayoutRegistry
     {
         $choices = [];
         foreach ($this->layouts as $name => $config) {
-            $choices[$config['label']] = $name;
+            $label = $this->translator->trans($config['label'], [], 'SymkitPageBundle');
+            $choices[$label] = $name;
         }
 
         return $choices;

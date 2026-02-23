@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle\Sitemap;
 
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symkit\MediaBundle\Service\MediaUrlGenerator;
 use Symkit\PageBundle\Repository\PageRepository;
 use Symkit\SitemapBundle\Contract\SitemapLoaderInterface;
 use Symkit\SitemapBundle\Model\SitemapUrl;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final readonly class PageSitemapLoader implements SitemapLoaderInterface
 {
@@ -48,9 +48,9 @@ final readonly class PageSitemapLoader implements SitemapLoaderInterface
             $images = [];
             if ($ogImage = $page->getOgImage()) {
                 if ($url = $this->mediaUrlGenerator->generateUrl($ogImage)) {
-                    $baseUrl = $this->urlGenerator->getContext()->getScheme() . '://' . $this->urlGenerator->getContext()->getHost();
+                    $baseUrl = $this->urlGenerator->getContext()->getScheme().'://'.$this->urlGenerator->getContext()->getHost();
                     $images[] = [
-                        'loc' => $baseUrl . $url,
+                        'loc' => $baseUrl.$url,
                         'title' => $ogImage->getAltText() ?? $page->getTitle(),
                     ];
                 }
@@ -68,7 +68,7 @@ final readonly class PageSitemapLoader implements SitemapLoaderInterface
 
     private function defaultPriorityForPath(string $path): string
     {
-        if ($path === '/' || $path === '') {
+        if ('/' === $path || '' === $path) {
             return '1.0';
         }
 

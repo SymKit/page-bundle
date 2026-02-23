@@ -1,4 +1,4 @@
-.PHONY: cs-fix cs-check phpstan lint test quality ci
+.PHONY: cs-fix cs-check phpstan deptrac infection lint test security-check quality ci
 
 cs-fix:
 	vendor/bin/php-cs-fixer fix
@@ -7,7 +7,13 @@ cs-check:
 	vendor/bin/php-cs-fixer fix --dry-run --diff
 
 phpstan:
-	vendor/bin/phpstan analyse --memory-limit=1G
+	vendor/bin/phpstan analyse --memory-limit=512M
+
+deptrac:
+	vendor/bin/deptrac analyse
+
+infection:
+	vendor/bin/infection --only-covered --show-mutations --threads=max --min-msi=70
 
 lint:
 	composer validate --strict
@@ -15,6 +21,9 @@ lint:
 test:
 	vendor/bin/phpunit
 
-quality: cs-check phpstan lint test
+security-check:
+	composer audit --abandoned=report
 
-ci: quality
+quality: cs-check phpstan deptrac lint test
+
+ci: security-check quality

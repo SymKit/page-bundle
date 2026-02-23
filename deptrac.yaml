@@ -1,0 +1,65 @@
+deptrac:
+    paths:
+        - ./src
+    layers:
+        - name: Bundle
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\SymkitPageBundle
+              valueType: className
+        - name: Entity
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Entity\\.*
+              valueType: className
+        - name: Repository
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Repository\\.*
+              valueType: className
+        - name: Service
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Service\\.*
+              valueType: className
+        - name: Form
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Form\\.*
+              valueType: className
+        - name: Controller
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Controller\\.*
+              valueType: className
+        - name: Metadata
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Metadata\\.*
+              valueType: className
+        - name: EventListener
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\EventListener\\.*
+              valueType: className
+        - name: Search
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Search\\.*
+              valueType: className
+        - name: Sitemap
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Sitemap\\.*
+              valueType: className
+    ruleset:
+        Entity: [Entity, Repository]
+        Repository: [Entity]
+        Service: [Entity, Repository]
+        Form: [Entity, Service]
+        Controller: [Entity, Repository, Service, Form, Metadata]
+        Metadata: [Entity, Repository]
+        EventListener: [Entity, Repository]
+        Search: [Entity, Repository]
+        Sitemap: [Entity, Repository]
+        Bundle: [Entity, Repository, Service, Form, Controller, Metadata, EventListener, Search, Sitemap]

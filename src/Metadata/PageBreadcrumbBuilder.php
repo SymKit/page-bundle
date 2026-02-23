@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Symkit\PageBundle\Metadata;
 
 use Exception;
-use Symkit\MetadataBundle\Contract\BreadcrumbBuilderInterface;
-use Symkit\MetadataBundle\Contract\BreadcrumbServiceInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symkit\MetadataBundle\Contract\BreadcrumbBuilderInterface;
+use Symkit\MetadataBundle\Contract\BreadcrumbServiceInterface;
 
 final readonly class PageBreadcrumbBuilder implements BreadcrumbBuilderInterface
 {
@@ -39,6 +39,7 @@ final readonly class PageBreadcrumbBuilder implements BreadcrumbBuilderInterface
             return;
         }
 
+        \assert($page instanceof \Symkit\PageBundle\Entity\Page);
         $service->add($this->translator->trans('breadcrumb.home', [], 'SymkitPageBundle'), $this->urlGenerator->generate('app_home', [], UrlGeneratorInterface::ABSOLUTE_URL));
 
         $activeMenuItem = $page->getActiveMenuItem();

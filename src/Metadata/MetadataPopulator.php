@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle\Metadata;
 
-use Exception;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symkit\MediaBundle\Service\MediaUrlGenerator;
 use Symkit\MetadataBundle\Contract\JsonLdCollectorInterface;
 use Symkit\MetadataBundle\Contract\JsonLdPopulatorInterface;
@@ -12,7 +12,6 @@ use Symkit\MetadataBundle\Contract\MetadataPopulatorInterface;
 use Symkit\MetadataBundle\Contract\PageContextBuilderInterface;
 use Symkit\MetadataBundle\JsonLd\Schema\FaqItem;
 use Symkit\MetadataBundle\JsonLd\Schema\FaqSchema;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final readonly class MetadataPopulator implements MetadataPopulatorInterface, JsonLdPopulatorInterface
 {
@@ -32,7 +31,7 @@ final readonly class MetadataPopulator implements MetadataPopulatorInterface, Js
     }
 
     /**
-     * @param Page $subject
+     * @param \Symkit\PageBundle\Entity\Page $subject
      */
     public function populateMetadata(object $subject, PageContextBuilderInterface $builder): void
     {
@@ -45,14 +44,14 @@ final readonly class MetadataPopulator implements MetadataPopulatorInterface, Js
         if ($subject->getOgImage()) {
             $url = $this->mediaUrlGenerator->generateUrl($subject->getOgImage());
             if (null !== $url) {
-                $baseUrl = $this->urlGenerator->getContext()->getScheme() . '://' . $this->urlGenerator->getContext()->getHost();
-                $builder->setOgImage($baseUrl . $url);
+                $baseUrl = $this->urlGenerator->getContext()->getScheme().'://'.$this->urlGenerator->getContext()->getHost();
+                $builder->setOgImage($baseUrl.$url);
             }
         }
     }
 
     /**
-     * @param Page $subject
+     * @param \Symkit\PageBundle\Entity\Page $subject
      */
     public function populateJsonLd(object $subject, JsonLdCollectorInterface $collector): void
     {
@@ -70,7 +69,7 @@ final readonly class MetadataPopulator implements MetadataPopulatorInterface, Js
             }
         }
 
-        if ($items !== []) {
+        if ([] !== $items) {
             $collector->add(new FaqSchema($items));
         }
     }

@@ -20,7 +20,7 @@ final class TestKernel extends Kernel
     private array $testBundles = [];
 
     /** @var callable(ContainerBuilder): void|null */
-    private $testConfig = null;
+    private $testConfig;
 
     public function registerBundles(): array
     {
@@ -71,7 +71,7 @@ final class TestKernel extends Kernel
             ],
         ]);
 
-        if ($this->testConfig !== null) {
+        if (null !== $this->testConfig) {
             ($this->testConfig)($container);
         }
     }

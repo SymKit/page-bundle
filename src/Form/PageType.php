@@ -4,15 +4,6 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle\Form;
 
-use Symkit\MediaBundle\Form\MediaType;
-use Symkit\FaqBundle\Entity\Faq;
-use Symkit\FormBundle\Form\Type\FormSectionType;
-use Symkit\FormBundle\Form\Type\SlugType;
-use Symkit\MenuBundle\Entity\Menu;
-use Symkit\MenuBundle\Entity\MenuItem;
-use Symkit\PageBundle\Entity\Category;
-use Symkit\PageBundle\Entity\Page;
-use Symkit\PageBundle\Service\PageLayoutRegistry;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -23,6 +14,15 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symkit\FaqBundle\Entity\Faq;
+use Symkit\FormBundle\Form\Type\FormSectionType;
+use Symkit\FormBundle\Form\Type\SlugType;
+use Symkit\MediaBundle\Form\MediaType;
+use Symkit\MenuBundle\Entity\Menu;
+use Symkit\MenuBundle\Entity\MenuItem;
+use Symkit\PageBundle\Entity\Category;
+use Symkit\PageBundle\Entity\Page;
+use Symkit\PageBundle\Service\PageLayoutRegistry;
 
 final class PageType extends AbstractType
 {
@@ -168,7 +168,7 @@ final class PageType extends AbstractType
 
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event): void {
             $page = $event->getData();
-            if ($page === null || !$page instanceof $this->pageClass) {
+            if (null === $page || !$page instanceof $this->pageClass) {
                 return;
             }
 

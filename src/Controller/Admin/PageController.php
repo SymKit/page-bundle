@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Symkit\PageBundle\Controller\Admin;
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Symkit\CrudBundle\Controller\AbstractCrudController;
 use Symkit\MenuBundle\Attribute\ActiveMenu;
 use Symkit\MetadataBundle\Attribute\Breadcrumb;
 use Symkit\MetadataBundle\Attribute\Seo;
 use Symkit\PageBundle\Entity\Page;
 use Symkit\PageBundle\Form\PageType;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 final class PageController extends AbstractCrudController
 {
@@ -20,36 +21,37 @@ final class PageController extends AbstractCrudController
      */
     public function __construct(
         private readonly string $pageClass,
+        private readonly TranslatorInterface $translator,
     ) {
     }
 
-    #[Seo(title: 'Page Management', description: 'Manage pages and their content.')]
-    #[Breadcrumb(context: 'admin', items: [['label' => 'Pages', 'route' => 'admin_page_list']])]
+    #[Seo(title: 'admin.page.list_title', description: 'admin.page.seo_list')]
+    #[Breadcrumb(context: 'admin', items: [['label' => 'admin.breadcrumb.pages', 'route' => 'admin_page_list']])]
     #[ActiveMenu('admin', 'pages')]
     public function list(Request $request): Response
     {
         return $this->renderIndex($request, [
-            'page_title' => 'Page Management',
+            'page_title' => $this->translator->trans('admin.page.list_title', [], 'SymkitPageBundle'),
         ]);
     }
 
-    #[Seo(title: 'Create Page')]
-    #[Breadcrumb(context: 'admin', items: [['label' => 'Pages', 'route' => 'admin_page_list']])]
+    #[Seo(title: 'admin.page.create_title')]
+    #[Breadcrumb(context: 'admin', items: [['label' => 'admin.breadcrumb.pages', 'route' => 'admin_page_list']])]
     #[ActiveMenu('admin', 'pages')]
     public function create(Request $request): Response
     {
         return $this->renderNew(new $this->pageClass(), $request, [
-            'page_title' => 'Create Page',
+            'page_title' => $this->translator->trans('admin.page.create_title', [], 'SymkitPageBundle'),
         ]);
     }
 
-    #[Seo(title: 'Edit Page')]
-    #[Breadcrumb(context: 'admin', items: [['label' => 'Pages', 'route' => 'admin_page_list']])]
+    #[Seo(title: 'admin.page.edit_title')]
+    #[Breadcrumb(context: 'admin', items: [['label' => 'admin.breadcrumb.pages', 'route' => 'admin_page_list']])]
     #[ActiveMenu('admin', 'pages')]
     public function edit(Page $page, Request $request): Response
     {
         return $this->renderEdit($page, $request, [
-            'page_title' => 'Edit Page',
+            'page_title' => $this->translator->trans('admin.page.edit_title', [], 'SymkitPageBundle'),
             'template_vars' => [
                 'page' => $page,
             ],
