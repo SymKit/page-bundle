@@ -10,14 +10,11 @@ parameters:
         - phpstan-bootstrap.php
     ignoreErrors:
         # Optional Symkit packages and Doctrine return types
-        - '~Class Symkit\\.* not found~'
         - '~Call to an undefined method Symkit\\.*~'
         - '~Parameter .* of method .* expects~'
         - '~should return .* but returns mixed~'
         - '~return type has no value type specified in iterable type array~'
         - '~should return iterable<.*> but returns iterable~'
-        - '~Parameter \$lastmod of class Symkit~'
-        - '~Unknown parameter \$images in call to Symkit~'
         - '~Expression on left side of \?\? is not nullable~'
         - '~Strict comparison using !== between null and string will always evaluate to true~'
-    reportUnmatchedIgnoredErrors: false
+    reportUnmatchedIgnoredErrors: true

@@ -7,13 +7,14 @@ namespace Symkit\PageBundle\Repository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symkit\MediaBundle\Entity\Media;
+use Symkit\PageBundle\Contract\PageRepositoryInterface;
 use Symkit\PageBundle\Entity\Category;
 use Symkit\PageBundle\Entity\Page;
 
 /**
  * @extends ServiceEntityRepository<Page>
  */
-class PageRepository extends ServiceEntityRepository
+final class PageRepository extends ServiceEntityRepository implements PageRepositoryInterface
 {
     /**
      * @param class-string<Page> $entityClass

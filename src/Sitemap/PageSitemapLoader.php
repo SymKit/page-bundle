@@ -6,14 +6,14 @@ namespace Symkit\PageBundle\Sitemap;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symkit\MediaBundle\Service\MediaUrlGenerator;
-use Symkit\PageBundle\Repository\PageRepository;
+use Symkit\PageBundle\Contract\PageRepositoryInterface;
 use Symkit\SitemapBundle\Contract\SitemapLoaderInterface;
 use Symkit\SitemapBundle\Model\SitemapUrl;
 
 final readonly class PageSitemapLoader implements SitemapLoaderInterface
 {
     public function __construct(
-        private PageRepository $repository,
+        private PageRepositoryInterface $repository,
         private UrlGeneratorInterface $urlGenerator,
         private MediaUrlGenerator $mediaUrlGenerator,
     ) {

@@ -7,6 +7,11 @@ deptrac:
             - type: classLike
               value: Symkit\\PageBundle\\SymkitPageBundle
               valueType: className
+        - name: Contract
+          collectors:
+            - type: classLike
+              value: Symkit\\PageBundle\\Contract\\.*
+              valueType: className
         - name: Entity
           collectors:
             - type: classLike
@@ -53,13 +58,14 @@ deptrac:
               value: Symkit\\PageBundle\\Sitemap\\.*
               valueType: className
     ruleset:
+        Contract: [Entity]
         Entity: [Entity, Repository]
-        Repository: [Entity]
+        Repository: [Contract, Entity]
         Service: [Entity, Repository]
         Form: [Entity, Service]
         Controller: [Entity, Repository, Service, Form, Metadata]
         Metadata: [Entity, Repository]
         EventListener: [Entity, Repository]
-        Search: [Entity, Repository]
-        Sitemap: [Entity, Repository]
-        Bundle: [Entity, Repository, Service, Form, Controller, Metadata, EventListener, Search, Sitemap]
+        Search: [Contract, Entity, Repository]
+        Sitemap: [Contract, Entity, Repository]
+        Bundle: [Contract, Entity, Repository, Service, Form, Controller, Metadata, EventListener, Search, Sitemap]

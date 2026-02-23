@@ -6,14 +6,14 @@ namespace Symkit\PageBundle\Search;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symkit\PageBundle\Repository\PageRepository;
+use Symkit\PageBundle\Contract\PageRepositoryInterface;
 use Symkit\SearchBundle\Contract\SearchProviderInterface;
 use Symkit\SearchBundle\Model\SearchResult;
 
 final readonly class PageSearchProvider implements SearchProviderInterface
 {
     public function __construct(
-        private PageRepository $pageRepository,
+        private PageRepositoryInterface $pageRepository,
         private UrlGeneratorInterface $urlGenerator,
         private TranslatorInterface $translator,
     ) {

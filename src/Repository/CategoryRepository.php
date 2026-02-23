@@ -11,7 +11,7 @@ use Symkit\PageBundle\Entity\Category;
 /**
  * @extends ServiceEntityRepository<Category>
  */
-class CategoryRepository extends ServiceEntityRepository
+final class CategoryRepository extends ServiceEntityRepository
 {
     /**
      * @param class-string<Category> $entityClass

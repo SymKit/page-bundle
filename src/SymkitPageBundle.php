@@ -9,6 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Symkit\PageBundle\Contract\PageRepositoryInterface;
 use Symkit\PageBundle\Controller\Admin\CategoryController;
 use Symkit\PageBundle\Controller\Admin\PageController as AdminPageController;
 use Symkit\PageBundle\Controller\PageController as FrontPageController;
@@ -145,6 +146,7 @@ class SymkitPageBundle extends AbstractBundle
         $services->set($config['entity']['page_repository_class'])
             ->arg('$entityClass', '%symkit_page.entity.page_class%');
         $services->alias(PageRepository::class, $config['entity']['page_repository_class']);
+        $services->alias(PageRepositoryInterface::class, $config['entity']['page_repository_class']);
 
         $services->set($config['entity']['category_repository_class'])
             ->arg('$entityClass', '%symkit_page.entity.category_class%');
